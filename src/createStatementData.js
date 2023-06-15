@@ -43,8 +43,12 @@ function createStatementData(invoice, plays) {
   statementData.totalAmount = totalAmount(statementData);
   return statementData;
 
+  function createPerfomanceCalculator(aPerformance, play) {
+    return new PerformanceCalculator(aPerformance, play);
+  }
+
   function enrichPerformance(aPerformance) {
-    const calculator = new PerformanceCalculator(
+    const calculator = createPerfomanceCalculator(
       aPerformance,
       playFor(aPerformance),
     );
